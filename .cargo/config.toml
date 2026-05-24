@@ -1,0 +1,13 @@
+[target.riscv32imc-unknown-none-elf]
+runner = "espflash flash"
+
+rustflags = [
+  "-C", "link-arg=-Tlinkall.x",
+  "-C", "force-frame-pointers",
+]
+
+[build]
+target = "riscv32imc-unknown-none-elf"
+
+[profile.release]
+debug = true

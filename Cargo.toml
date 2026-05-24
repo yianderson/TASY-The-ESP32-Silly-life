@@ -1,0 +1,24 @@
+[package]
+name = "tasy-core"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "tasy-core"
+path = "src/main.rs"
+harness = false # <-- ВОТ ЭТОТ КОСТЫЛЬ ЗАПРЕТИТ ИСКАТЬ CRATE 'test'
+
+[dependencies]
+esp-hal = { version = "0.22.0", features = ["esp32c3"] }
+esp-backtrace = { version = "0.14.0", features = ["esp32c3", "exception-handler", "panic-handler", "println"] }
+esp-hal-embassy = { version = "0.5.0", features = ["esp32c3"] }
+esp-println = { version = "0.12.0", features = ["esp32c3", "auto"] }
+
+embassy-executor = { version = "0.6.0", features = ["task-arena-size-12288"] }
+embassy-time = { version = "0.3.2", features = ["generic-queue"] }
+
+portable-atomic = "1.13.1"
+embedded-io-async = "0.6.1"
+
+embedded-storage = "0.3.1"
+esp-storage = { version = "0.4.0", features = ["esp32c3"] }
